@@ -77,6 +77,33 @@ def choice(message):
         bot.send_photo(message.chat.id, home_photo, greet, reply_markup=markup)
 
 
+def water_floor(message):
+    markup = types.InlineKeyboardMarkup(row_width=1)
+    add_basket = types.InlineKeyboardButton('В корзину', callback_data='В корзину')
+    back = types.InlineKeyboardButton('<<', callback_data='Виды полов')
+    markup.add(add_basket, back)
+    bot.edit_message_caption(chat_id=message.chat.id, message_id=message.id,
+                             caption='Водяные теплые полы', reply_markup=markup)
+
+
+def electric_floor(message):
+    markup = types.InlineKeyboardMarkup(row_width=1)
+    add_basket = types.InlineKeyboardButton('В корзину', callback_data='В корзину')
+    back = types.InlineKeyboardButton('<<', callback_data='Виды полов')
+    markup.add(add_basket, back)
+    bot.edit_message_caption(chat_id=message.chat.id, message_id=message.id,
+                             caption='Электрические теплые полы', reply_markup=markup)
+
+
+def blend_floor(message):
+    markup = types.InlineKeyboardMarkup(row_width=1)
+    add_basket = types.InlineKeyboardButton('В корзину', callback_data='В корзину')
+    back = types.InlineKeyboardButton('<<', callback_data='Виды полов')
+    markup.add(add_basket, back)
+    bot.edit_message_caption(chat_id=message.chat.id, message_id=message.id,
+                             caption='Электро-водяные теплые полы', reply_markup=markup)        
+        
+        
 def basket(message):
     markup = types.InlineKeyboardMarkup(row_width=1)
     calculate_money = types.InlineKeyboardButton(text='Оплатить заказ', callback_data='Оплатить заказ')
