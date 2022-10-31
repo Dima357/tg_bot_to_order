@@ -28,10 +28,18 @@ def check_callback_data(callback):
         help(callback.message)
     elif callback.data == 'Виды полов':
         choice(callback.message)
+    elif callback.data == 'Водяной':
+        water_floor(callback.message)
+    elif callback.data == 'Электрический':
+        electric_floor(callback.message)
+    elif callback.data == 'Электро-водяной':
+        blend_floor(callback.message)
     elif callback.data == 'Корзина':
         basket(callback.message)
     elif callback.data == 'Оплатить заказ':
         pay(callback.message)
+    else:
+        bot.send_message(chat_id=callback.message.chat.id, text='Произошла ошибка')
 
 
 @bot.message_handler(commands=['help'])
