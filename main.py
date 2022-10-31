@@ -55,10 +55,13 @@ def help(message):
 def choice(message):
     home_photo = open('floor/home_photo.jpeg', 'rb')
     greet = 'Виды полов:'
-    markup = types.InlineKeyboardMarkup(row_width=1)
+    markup = types.InlineKeyboardMarkup(row_width=3)
+    water = types.InlineKeyboardButton(text='Водяной', callback_data='Водяной')
+    electric = types.InlineKeyboardButton(text='Электрический', callback_data='Электрический')
+    blend = types.InlineKeyboardButton(text='Электро-водяной', callback_data='Электро-водяной')
     basket = types.InlineKeyboardButton(text='Корзина', callback_data='Корзина')
     back = types.InlineKeyboardButton(text='<< Меню', callback_data='Меню')
-    markup.add(basket, back)
+    markup.add(water, electric, blend, back, basket)
     try:
         bot.edit_message_caption(chat_id=message.chat.id, message_id=message.id,
                                  caption=greet, reply_markup=markup)
