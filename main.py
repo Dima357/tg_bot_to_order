@@ -51,7 +51,6 @@ def help(message):
         bot.send_photo(chat_id=message.chat.id, photo=home_photo, caption=greet, reply_markup=markup)
 
 
-@bot.message_handler(commands=['choice'])
 def choice(message):
     home_photo = open('floor/home_photo.jpeg', 'rb')
     greet = 'Виды полов:'
@@ -94,12 +93,10 @@ def text_from_user(message):
         start(message)
     elif 'помощь' in message.text.lower():
         help(message)
-    elif 'виды полов' in message.text.lower():
-        choice(message)
     else:
         answer = 'Проверьте правильность ввода\n'\
                          'Возможные варианты\n' \
-                         'меню, помощь, виды полов'
+                         'меню, помощь'
         bot.send_message(message.chat.id, answer)
 
 
